@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<table class="table table-striped">
+    {% for row in entries %}
+    <tr>
+        {% for attr in row %}
+            <td>{{ attr }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+{#
+<table class="table table-striped t026_users">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>surname</th>
+        <th>login</th>
+        <th>passwd</th>
+        <th>email</th>
+        <th>phone</th>
+    </tr>
+    {% for row in entries %}
+    <tr>
+        {% for attr in row %}
+            <td>{{ attr }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+#}
+{% endblock %}

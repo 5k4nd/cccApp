@@ -1,0 +1,267 @@
+<script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+    $(document).ready(function() {
+        $("#edit-arret-choice").autocomplete("disable");
+        $("#edit-arret-choice").autocomplete(
+                {
+                    appendTo: "#div-autocomplete-request",
+                    position: { my : "bottom", at: "top" },
+                    minLength: 3,
+                    source: function( request, response ) {
+                        var text = $("#edit-arret-choice").val();
+                        $.get("/v1/places.json?key=tf77dfa77a54f1b8ed73343031ea42a10&simple=1&displayOnlyStopAreas=1",
+                            { term: text }, function( data ) { response( data ); },
+                            "json");
+                    }
+                });
+
+        $("#edit-arret-choice").keyup(function() {
+            var spot_name = $("#edit-arret-choice").val();
+            if(spot_name.match(/^\d+$/))
+                $("#edit-arret-choice").autocomplete("disable");
+            else
+                $("#edit-arret-choice").autocomplete("enable");
+        });
+    });
+</script>
+<!-- research form -->
+<div class="div_request">
+	<div class="hj_div">
+		<form class="research_form" method="get" action={{ request.baseurl }}>
+
+		    <label>{{ string_content['hj_stop_select'] }}</label><br>
+
+		    <div style="padding-top: 3px">
+				
+		        <div class="hj_div">
+		            <img style="margin:0px 5px 0 0px;" src="/sites/all/themes/tisseo/img/picto-arret-17x17.png" />
+		        </div>			
+		        <div class="hj_div" id="div-autocomplete-request" style="position:relative;">
+					<input type="text" placeholder="{{ string_content['hj_default_search_label'] }}" class="form-text ac_input ui-autocomplete-input" value="{{ query['stop_name'] }}" size="30" id="edit-arret-choice" name="stop_name" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+		        </div>
+
+		        <div class="hj_div">
+		            <img style="margin:0px 8px 0 40px;" src="/sites/all/themes/tisseo/img/picto-date---17x17.png" />
+		        </div>
+		        <div class="hj_div" style="padding-top: 5px">
+		            <select name='schedule_date' class='form-select'>  {{ query['next_days_html_string']|safe }} </select>
+		        </div>
+
+		        <div class="hj_div">
+		            <input style="margin:0 0 0 10px;" type="submit" class="form-submit" title="{{ string_content['hj_search'] }}" alt="{{ string_content['hj_search'] }}" value="ok" id="edit-submit">
+		        </div>
+
+				{% if request.args['destination_id'] %}
+				    <input type="hidden"  name="stop_id"  value="{{ request.args['stop_id'] }}">
+				    <input type="hidden"  name="line_id"  value="{{ request.args['line_id'] }}">
+				    <input type="hidden"  name="destination_id"  value="{{ request.args['destination_id'] }}">
+				{% endif %}
+		    </div>
+		</form>
+	</div>
+    {% if request.args['destination_id'] and not summary['lines'] %}
+		<div class="hj_div" style="padding-top: 9px;padding-left: 40px;">
+			<form method="get" action={{ request.baseurl }}>
+			    <input style="text-transform: none;" type="submit" class="form-submit" title="{{ string_content['hj_new_search_button'] }}" alt="{{ string_content['hj_new_search_button'] }}" value="{{ string_content['hj_new_search_button'] }}">
+			</form>
+		</div>
+    {% endif %}
+</div>
+
+{% if query['new_search'] == "1" %}
+    {% if not summary['lines'] %}
+		{% if request.args['schedule_date'] %}
+			{% if not request.args['stop_name'] %}
+			    <div class="div_no_schedule">
+		        	{{ string_content['hj_no_stop_name'] }}
+		        </div>
+	        {% else %}
+				{% if not summary['stop_id'] %}
+		            <div class="div_no_schedule">
+		            	{{ string_content['hj_no_stop'] }}
+		            </div>
+			    {% else %}
+			        <div class="div_no_schedule">
+		            	{{ string_content['hj_no_line'] }}
+		            </div>
+		        {% endif %}
+            {% endif %}
+        {% endif %}
+    {% else %}
+	    <!-- line list result -->
+        <label class="line_result_label">{{ string_content['hj_line_select'] }}</label><br>
+        <table class="table_lines">
+            <thead>
+                <tr>
+                    <th class="th_no">N°</th>
+                    <th class="th_dest">DESTINATIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set i_line = 0 %}
+                {% for line in summary['lines'] %}
+                    {% if i_line is divisibleby 2 %}
+                        {% set tr_class = 'lignes_pair' %}
+                    {% else %}
+                        {% set tr_class = 'lignes_impair' %}
+                    {% endif %}
+                    {% set url_href = '?stop_name=' + query['stop_name'] + '&schedule_date=' + request.args['schedule_date'] + '&stop_id=' + summary['stop_id'] + '&line_id=' + line['id'] + '&destination_id=' + line['destinationId'] %}
+                    <tr class={{ tr_class }} >
+                        <td align="center">
+                            <div class="line_div" style="background-color:{{ line['bgcolor'] }};" align="center">
+                                <a style="color:{{ line['fgcolor'] }};" href="{{ url_href }}">
+                                    {{ line['name']|safe }}
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+							<div class="hj_div" style="padding-top: 2px;">
+                            <a href="{{ url_href }}">
+	                        	{{ line['destinationName']|safe }}
+                            </a>
+							</div>
+                            {% if 'message' in line %}
+								<div style="display: table-cell;">
+									<a class="a_warning" title="{{ line['message']['title'] }}" target="_blank" href="{{ line['message']['url'] }}" ></a>
+								</div>
+	                        {% endif %}
+                            {% if line['name'] == 'AERO' %}
+								<div style="display: table-cell;">
+									<a class="a_special_price" title="{{ string_content['hj_special_price'] }}" target="_blank" href="http://www.tisseo.fr/les-tarifs/la-gamme?field_tisseo_profil_value=18&field_tisseo_reseau_value=23" ></a>
+								</div>
+	                        {% endif %}
+                        </td>
+                    </tr>
+                    {% set i_line = i_line + 1 %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% else %}
+    {% if request.args['line_id'] %}
+        <!-- summary -->
+        <div class="div_summary" style="overflow: auto;">
+            <div class="div_print">
+                {% set url_print = '/horaires_journee/print/?stop_name=' + request.args['stop_name'] + '&schedule_date=' + request.args['schedule_date'] + '&stop_id=' + request.args['stop_id'] + '&line_id=' + request.args['line_id'] + '&destination_id=' + request.args['destination_id'] %}
+                <a class="a_print" title="{{ string_content['hj_print'] }}" target="_blank" href="{{ url_print }}">
+                </a>
+            </div>
+            <div class="div_summary_label">
+                <label style="padding-left: 5px;padding-top: 2px;"><b>{{ string_content['hj_search_label'] }}</b></label><br>
+            </div>
+            <div class="div_stop_block">
+                <!-- stop -->
+                <div class="hj_div">
+                    <label style="padding-left: 5px;">{{ string_content['hj_stop_label'] }} {{ query['stop_name']|safe }}</label>
+                </div>
+                <!-- handicapped compliance -->
+                <div class="hj_div">
+	                {% if summary['handicapped_compliance'] == "1" %}
+	                    <img alt="{{ string_content['hj_handicapped_compliance_label'] }}" title="{{ string_content['hj_handicapped_compliance_label'] }}" src="/plan-interactif/images/new/Picto-AccesPMR-OK.png" />
+	                {% else %}
+	                    <img alt="{{ string_content['hj_no_handicapped_compliance_label'] }}" title="{{ string_content['hj_no_handicapped_compliance_label'] }}" src="/plan-interactif/images/new/Picto-AccesPMR-KO.png" />
+	                {% endif %}
+                </div>
+				<!-- interactive map -->
+                <div class="hj_div">
+                    <button class="form-submit map_button" onClick="window.open('http://www.tisseo.fr/plan-interactif/?searchco=true&searchtx={{ query['stop_name']|urlencode }}&zoom=5')">
+						<span class="map_span">
+							{{ string_content['hj_map_button'] }}
+						</span>
+                    </button>
+                </div>
+            </div>
+            <div style="display: inline-block;float: left;">
+                <!-- line -->
+                <div class="hj_div">
+                    <label style="padding-left: 5px;">{{ string_content['hj_line_label'] }}</label>
+                </div>
+                <div class="hj_div">
+                    <div class="line_div" style="background-color: {{ summary['line']['bg_color']|safe }};color: {{ summary['line']['fg_color']|safe }};">
+                        {{ summary['line']['short_name']|safe }}
+                    </div>
+                </div>
+                <!-- terminus select -->
+                <div class="hj_div">
+                    <label style="margin-left:7px">{{ string_content['hj_to_terminus_label'] }}</label>
+                </div>
+                <div class="hj_div" style="padding-top: 1px">
+                    <form class="terminus_form" action="" method="get">
+                        {{ summary['terminus_select']|safe }}
+                    </form>
+                </div>
+				<!-- date -->
+		        <div style="display: inline-block;">
+		            <label style="padding-left: 5px;">{{ string_content['hj_date_label'] }} {{ query['search_date']|safe }}</label><br>
+		        </div>
+            </div>
+            <div class = "message_block">
+                <!-- message -->
+                {% if summary['message'] %}
+                    <div class="hj_div">
+						<a style="color: red" href="{{ summary['message']['url']|safe }}" target="_blank">								
+							<div class="div_message" style="margin-left: 15px">
+								{{ summary['message']['text']|safe }}
+							</div>
+						</a>
+                    </div>
+                {% endif %}
+		        {% if summary['line']['short_name'] == 'AERO' %}
+					<!-- tarif particulier -->
+		            <div class="hj_div">
+						<a style="color: red" href="http://www.tisseo.fr/les-tarifs/la-gamme?field_tisseo_profil_value=18&field_tisseo_reseau_value=23" target="_blank">								
+							<div class="div_special_price">
+								{{ string_content['hj_special_price'] }}
+							</div>
+						</a>
+		            </div>
+		        {% endif %}
+            </div>
+        </div>
+        {% if summary['on_demand_transport'] == '1' %}
+            <div class="div_reservation">
+                <a class="a_reservation_link" href="http://www.tisseo.fr/calculateur?o_p={{ request.args['stop_name'] }}" target="_blank">
+	            	{{ string_content['hj_reservation_mandatory'] }}<br>
+				</a>
+            </div>
+            <div class="div_reservation_link">
+                <a class="a_reservation_link" href="http://www.tisseo.fr/se-deplacer/bien-voyager/en-TAD" target="_blank">
+                    {{ string_content['hj_tad_informations'] }}
+                </a>
+            </div>
+        {% endif %}
+        {% if not schedule_html_table %}
+            {% if summary['on_demand_transport'] != '1' %}
+                <div class="div_no_schedule">
+                	{{ string_content['hj_no_schedule'] }}
+                </div>
+            {% endif %}
+        {% else %}
+            <!-- schedules table -->
+            <table class="table_schedules"><thead><tr>
+            {% for item in schedule_html_table[0] %}
+                <th>
+                    {{ item }}
+                </th>
+            {% endfor %}
+            </tr></thead><tbody>
+            {% set i_line = 1 %}
+            {% for line in schedule_html_table[1::] %}
+                {% if i_line is divisibleby 2 %}
+                    {% set tr_class = 'lignes_pair' %}
+                {% else %}
+                    {% set tr_class = 'lignes_impair' %}
+                {% endif %}
+                <tr class={{ tr_class }}>
+                {% for item in line %}
+                        <td align="center">
+                            {{ item }}
+                        </td>
+                    {% endfor %}
+                </tr>
+                {% set i_line = i_line + 1 %}
+            {% endfor %}
+            </tbody></table>
+        {% endif %}
+    {% endif %}
+{% endif %}
+<br>

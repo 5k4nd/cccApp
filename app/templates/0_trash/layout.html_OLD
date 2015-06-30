@@ -1,0 +1,10 @@
+<!doctype html>
+<title>Module TAD</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+    <h1>Interface du module TAD</h1>
+    <div>Wonderful, you are successfully logged in!</div>
+    {% if current_user.is_authenticated() %}
+      Hi {{ current_user.name }}!
+    {% endif %}
+</div>

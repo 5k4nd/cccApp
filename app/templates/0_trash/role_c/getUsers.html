@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block script %}
+<script>
+    $(document).ready(function()
+    {
+        var recherche=$('#recherche').val();
+        $.post("/autocomplete", {recherche: recherche},
+        function(data)
+        {
+            $("#users-table").html(data);
+        });
+    });
+</script>
+<script>
+    $(document).ready(function()
+    {
+        $('#recherche').keyup(function()
+        {
+            var recherche=$('#recherche').val();
+            $.post("/autocomplete", {recherche: recherche}, function(data)
+            {
+                $("#users-table").html(data);
+            });
+            return false; 
+        });
+    });
+</script>
+{% endblock %}
+
+{% block h2 %}Utilisateurs{% endblock %}
+{% block content %}
+
+<p><span class="glyphicon glyphicon-search"></span> <input type='text' placeholder='Recherche' id='recherche' name='recherche' autocomplete='off'/></p>
+<div class="help-block"><span class="glyphicon glyphicon-info-sign"></span> Vous pouvez rechercher un utilisateur par son nom, prénom, login, téléphone ou mail.</div>
+
+<hr>
+<div id='users-table'></div>
+
+<ul class="pagination">
+    <li>
+    <a href="#">Prev</a>
+    </li>
+    <li>
+    <a href="#">1</a>
+    </li>
+    <li>
+    <a href="#">2</a>
+    </li>
+    <li>
+    <a href="#">3</a>
+    </li>
+    <li>
+    <a href="#">4</a>
+    </li>
+    <li>
+    <a href="#">5</a>
+    </li>
+    <li>
+    <a href="#">Next</a>
+    </li>
+</ul>
+
+
+{% endblock %}

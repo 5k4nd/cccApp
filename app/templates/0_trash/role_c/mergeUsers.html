@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{# A MODIFIER, à copier sur seeUsers #}
+{% block h2 %}<a href='getAll'>Utilisateurs</a> <span class="glyphicon glyphicon-triangle-right"></span> Fusion d'utilisateurs{% endblock %}
+{% block content %}
+
+<ul>
+    <li>{{ user.id }}
+    <li>{{ user.login }}
+</ul>
+{% endblock %}

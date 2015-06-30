@@ -1,0 +1,39 @@
+#####################################
+#                                   #
+#           CCC App                 #
+#                                   #
+#####################################
+
+Bienvenue dans le code source de l'appli web de la CCC !
+
+
+
+
+
+
+
+
+
+#####################################
+#                                   #
+#           NOTES DE DEV            #
+#                                   #
+#####################################
+
+avant la mise en prod :
+  * nettoyer le virtualenv
+  * tester l'envoi de mail lors d'erreurs côté serveur (sur demic)
+  
+
+
+améliorations techniques :
+  * permettre d'uploader une image de profil
+  * récupération de mot de passe
+  * pour les comptes, faire une section 'cadeau anonyme' que la personne qui reçoit le cadeau ne pourra pas voir.
+  * anti-lieu de Controverses Consuméristes Contusives (pour la page des comptes)
+
+
+
+améliorations éthiques :
+  * nous séparer (ou du moins limiter le plus possible son utilisation) de SQL-Alchemy. parce que ne pas utiliser bêtement un ORM sans savoir ce qu'il se passe derrière, c'est cool.
+

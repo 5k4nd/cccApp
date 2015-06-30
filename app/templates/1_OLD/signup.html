@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+    <h2>Sign up</h2>
+   
+    {% for message in form.id.errors %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+             
+    {% for message in form.login.errors %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+                     
+    {% for message in form.email.errors %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+                             
+    {% for message in form.password.errors %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+                                     
+    <form class="form form-horizontal" action="{{ url_for('signup') }}" method=post>
+        {{ form.hidden_tag() }}
+                                                 
+        {{ form.id.label }}
+        {{ form.id}}
+                                                         
+        {{ form.login.label }}
+        {{ form.login}}
+                                                                 
+        {{ form.email.label }}
+        {{ form.email }}
+                                                                             
+        {{ form.password.label }}
+        {{ form.password }}
+                                                                                     
+        {{ form.submit }}
+    </form>
+                                                                                       
+{% endblock %}

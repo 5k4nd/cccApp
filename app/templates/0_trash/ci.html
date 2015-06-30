@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block script %}
+<script src="/static/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="/static/js/bootstrap-datepicker.js"></script>
+<link href="static/css/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+<script>
+    $.widget( "custom.catcomplete", $.ui.autocomplete, {
+        _create: function() {
+            this._super();
+            this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+        },
+        _renderMenu: function( ul, items ) {
+            var that = this,
+            currentCategory = "";
+            $.each( items, function( index, item ) {
+                var li;
+                if ( item.category != currentCategory ) {
+                    ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                    currentCategory = item.category;
+                }
+                li = that._renderItemData( ul, item );
+                if ( item.category ) {
+                    li.attr( "aria-label", item.category + " : " + item.label );
+                }
+            });
+        }
+    });
+</script>
+<script>
+    $(function() {
+        $( ".search" ).catcomplete({
+            delay: 0,
+            source: 'https://api.tisseo.fr/v1/places.json?key=a122eb965570f67f059af4b91de3e5b13&simple=1'
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#firstDepartureDatetime').datepicker({
+        });  
+    });
+</script>
+{% endblock %}
+
+{% block h2 %}Recherche d'itinéraires{% endblock %}
+
+{% block content %} 
+
+<form action="{{ url_for('ci') }}" method=post role="form">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <div>
+            {{ form.departurePlace.label }} {# implémenter les 3 char minimum #}
+            {{ form.departurePlace(size=50, class="search") }}
+            {{ form.arrivalPlace.label }}
+            {{ form.arrivalPlace(size=50, class="search") }}
+        </div>
+        <div>
+            {{ form.firstDepartureDatetime.label }} <span class="glyphicon glyphicon-calendar"></span>
+            {{ form.firstDepartureDatetime(id='firstDepartureDatetime') }}
+            <div>
+            </div>
+            <button type="submit" class="btn btn-default">Lancer la recherche</button>
+        </form>
+
+        <div><p></p></div>
+
+        <div class="results">
+            {% for itin in itineraires %}
+            {{ itin }}
+            {% endfor %}
+        </div>
+
+        {% endblock %}

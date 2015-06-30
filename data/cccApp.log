@@ -1,0 +1,228 @@
+2015-06-24 18:51:42,071 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-24 18:51:42,270 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-24 18:52:30,750 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-24 18:52:30,950 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-24 18:53:20,239 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-24 18:53:34,455 ERROR: Exception on /yolo [GET] [in /usr/local/lib/python2.7/dist-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/home/bat/code/baptabl.fr/ccc/app/views.py", line 35, in not_found_error
+    return 'pas de ça chez nous ! (erreur 404)'
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: <unprintable TemplateNotFound object>
+2015-06-24 18:53:34,722 ERROR: Exception on /static/css/bootstrap-responsive.css [GET] [in /usr/local/lib/python2.7/dist-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/home/bat/code/baptabl.fr/ccc/app/views.py", line 35, in not_found_error
+    return 'pas de ça chez nous ! (erreur 404)'
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: <unprintable TemplateNotFound object>
+2015-06-25 01:49:35,905 ERROR: Exception on /yolo [GET] [in /usr/local/lib/python2.7/dist-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/home/bat/code/baptabl.fr/ccc/app/views.py", line 35, in not_found_error
+    return 'pas de ça chez nous ! (erreur 404)'
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: <unprintable TemplateNotFound object>
+2015-06-25 01:49:36,680 ERROR: Exception on /static/css/bootstrap-responsive.css [GET] [in /usr/local/lib/python2.7/dist-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/home/bat/code/baptabl.fr/ccc/app/views.py", line 35, in not_found_error
+    return 'pas de ça chez nous ! (erreur 404)'
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: <unprintable TemplateNotFound object>
+2015-06-25 11:00:06,016 ERROR: Exception on /yolo [GET] [in /usr/local/lib/python2.7/dist-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/home/bat/code/baptabl.fr/ccc/app/views.py", line 35, in not_found_error
+    return 'pas de ça chez nous ! (erreur 404)'
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: <unprintable TemplateNotFound object>
+2015-06-25 11:00:06,868 ERROR: Exception on /static/css/bootstrap-responsive.css [GET] [in /usr/local/lib/python2.7/dist-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/home/bat/code/baptabl.fr/ccc/app/views.py", line 35, in not_found_error
+    return 'pas de ça chez nous ! (erreur 404)'
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: <unprintable TemplateNotFound object>
+2015-06-25 11:10:35,006 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:10:35,209 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:13:14,136 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:13:26,415 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:31:55,844 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:33:20,391 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:33:51,733 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:34:31,115 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:38:50,312 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:39:16,641 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:39:58,023 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:40:57,480 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:41:44,890 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:59:10,159 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 11:59:13,393 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 12:07:29,095 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 12:09:29,810 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 12:10:58,444 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 12:11:42,221 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-25 12:11:51,021 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 11:23:21,350 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 11:23:21,666 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 16:47:18,983 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 16:48:36,623 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 16:48:36,823 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 16:58:17,693 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 16:58:17,903 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:06:46,561 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:06:46,768 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:10:01,969 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:21:35,237 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:21:35,439 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:21:47,712 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:21:49,970 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:21:50,170 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:21:53,772 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:30:58,532 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:31:22,611 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:32:04,177 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:32:16,789 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:34:12,715 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:34:29,908 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:34:40,770 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:35:20,386 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:36:23,418 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:36:41,212 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:37:21,448 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:37:30,316 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:37:34,058 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:37:40,220 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:37:43,614 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:37:56,492 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:38:50,445 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:38:50,648 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:39:52,109 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:40:32,488 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:40:35,728 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:41:03,058 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:51:04,577 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:51:17,862 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:51:33,159 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:51:37,413 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:51:41,668 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:51:44,918 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:52:34,353 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:52:37,602 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:52:54,909 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:53:11,524 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:53:39,727 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:54:05,191 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:56:14,317 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:56:18,510 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]
+2015-06-30 17:56:18,724 INFO: cccApp startup [in /home/bat/code/baptabl.fr/ccc/app/__init__.py:50]

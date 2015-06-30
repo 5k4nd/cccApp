@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block h2 %}{{ title }}{% endblock %}
+
+{% block content %} 
+<div class="row clearfix col-md-5">
+    <form action="{{ url_for('login') }}" method="post" role="form" name="login">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.login.label(size=20) }}
+            {{ form.login}}
+        </div>
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password }}
+        </div>
+        <button type="submit" class="btn btn-default">Se connecter</button>
+    </form>
+
+    <div><p></p></div>
+    {#
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    #}
+</div>
+
+
+{% endblock %}

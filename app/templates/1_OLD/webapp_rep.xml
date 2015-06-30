@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<login xsi:noNamespaceSchemaLocation="http://rcsmobility.com/xsd/xml_Session_function.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    {% if not user %}
+    <session></session>
+    {% else %}
+    <session>{{ sid }}</session>
+        <name>{% filter capitalize %}{{ user.firstname}}{% endfilter %} {% filter upper %}{{ user.name }}{% endfilter %}</name>
+        <phone></phone>
+        <email>{{ user.email }}</email>
+        <user_id>{{ user.id }}</user_id>
+    {% endif %}
+</login>

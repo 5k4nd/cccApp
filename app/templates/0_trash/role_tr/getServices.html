@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block h2 %}Services{% endblock %}
+{% block content %}
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td><span class='glyphicon glyphicon-list-alt'></span></td>
+                    <th>Ligne</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for user in users %}
+                <tr>
+                    <td><a href='edit-{{ user.id }}'><span class='glyphicon glyphicon-pencil'></span></a></td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.login }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.email|default('aucun') }}</td>
+                    <td>
+                        {% for res in resa[user.id] %}
+                        {{ res.token|default('aucune') }}
+                        {% endfor %}
+                    </td>
+                    <td><a href='merge-{{ user.id }}'>fusionner</a></td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-medium btn-primary" name="userSubmit" type="submit">Action</button>
+
+
+
+
+        {#
+        <ul class="entries">
+            {% for entry in entries %}
+            <li>
+            {% for attribute in entry %}
+            <li>
+            {{ attribute }}
+            </li>
+            {% endfor %}
+            </li>
+            {% else %}
+            <li>
+            <em>La base de données est vide !</em>
+            </li>
+            {% endfor %}
+        </ul>
+        #}
+        {% endblock %}

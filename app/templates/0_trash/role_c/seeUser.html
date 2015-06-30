@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block h2 %}
+    <a href='getAll'>Utilisateurs</a> <span class="glyphicon glyphicon-triangle-right"></span>
+    {% if user.login %}{{ user.login }}{% else %}n°{{ user.id }}{% endif %}
+{% endblock %}
+
+{% block content %}
+<ul style="top: 0" class="nav nav-pills">
+    <li class="active">
+    <a href="#"> <span class="badge pull-right">42</span>Propriétés</a>
+    </li>
+    <li>
+    <a href="#"> <span class="badge pull-right">16</span>Journal</a>
+    </li>
+    <li>
+    <a href="#"> <span class="badge pull-right">16</span>Réservations</a>
+    </li>
+    <li>
+    <a href="#"> <span class="badge pull-right">16</span>Annulations</a>
+    </li>
+    <li>
+    <a href="#"> <span class="badge pull-right">16</span>Annulations hors délai</a>
+    </li>
+    <li>
+    <a href="#"> <span class="badge pull-right">16</span>Absences</a>
+    </li>
+</ul>
+
+<hr>
+
+<div>
+    Réservations :
+    <ul>
+        {% for resa in user.reservations %}
+        <li>resa : {{ resa.token }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="row clearfix col-md-5">
+    <form action="{{ url_for('seeUser') }}" method=post role="form">
+        {{ form.uid(value=user.id) }}
+        {{ form.hidden_tag() }}
+
+        {% for field in form %}
+        <div class="form-group">
+            {% if field.widget.input_type != 'hidden' %}
+            {{ field.label }} 
+            {{ field(value=user[field.name]) }}
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-default">Enregistrer les modifications</button>
+    </form>
+</div>
+{% endblock %}

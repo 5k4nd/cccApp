@@ -1,0 +1,22 @@
+<form action="{{ url_for('getUser', email=user.email) }}" method="post">
+    {{form.hidden_tag()}}
+    <table>
+        <tr>
+            <td>Your firstname:</td>
+            <td>{{ form.firstname(size=24) }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save Changes"></td>
+        </tr>
+
+    </table>
+</form>
