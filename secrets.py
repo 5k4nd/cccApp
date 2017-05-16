@@ -6,4 +6,5 @@
 #                                                           #
 #############################################################
 
-SECRET_KEY = 'you-will-never-guess'
+# this thing should be completed and will crash if not!
+SECRET_KEY = 
